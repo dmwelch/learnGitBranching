@@ -11,27 +11,35 @@ exports.level = {
     "en_US": "Rebasing over 9000 times",
     "de_DE": "10000 Rebases unter dem `HEAD`",
     "es_AR": "Rebaseando más de 9000 veces",
+    "es_ES": "Rebaseando más de 9000 veces",
     "pt_BR": "Fazendo mais de 9000 rebases",
+    "gl"   : "Facendo máis de 9000 rebases",
     "fr_FR": "Rebaser plus de 1000 fois",
     "ko": "9천번이 넘는 리베이스",
     "ja"   : "9000回以上のrebase",
     "zh_CN": "多次 Rebase",
     "zh_TW": "N次Rebase",
     "ru_RU": "Rebase over 9000 раз",
-    "uk"   : "Rebase over 9000 разів"
+    "uk"   : "Rebase over 9000 разів",
+    "vi"   : "Rebase hơn 9000 lần",
+    "sl_SI": "Več kot 9000 Rebaseov"
   },
   "hint": {
     "en_US": "Remember, the most efficient way might be to only update master at the end...",
-    "de_DE": "Nicht vergessen: die effizienteste Möglichkeit könnte sein, schließlich einfach nur den master zu aktualisieren ...",
+    "de_DE": "Nicht vergessen: nur den master zu aktualisieren könnte die effizienteste Möglichkeit sein ...",
     "es_AR": "Acordate, la manera más eficiente podría ser actualizar master sólo al final...",
+    "es_ES": "Recuerda, la manera más eficiente podría ser actualizar master sólo al final...",
     "pt_BR": "Lembre-se, a forma mais eficiente pode ser atualizar o master por último...",
+    "gl"   : "Lembra, a forma máis eficiente pode ser actualizar a rama master ó final...",
     "fr_FR": "Rappelez-vous, la façon la plus efficace peut être de mettre à jour master seulement à la fin ...",
     "ja"   : "最も効率的なやり方はmasterを最後に更新するだけかもしれない・・・",
     "ko": "아마도 master를 마지막에 업데이트하는 것이 가장 효율적인 방법일 것입니다...",
     "zh_CN": "记住，最后更新 master 分支可能是最高效的方法……",
     "zh_TW": "要記住喔! 把 master branch 留到最後更新可能是最有效率的方法。",
     "ru_RU": "Не забудь, что лучше всего сдвинуть мастер в самом конце...",
-    "uk"   : "Не забувай, що краще всього буде перемістити master в самому кінці... "
+    "uk"   : "Не забувай, що краще всього буде перемістити master в самому кінці... ",
+    "vi"   : "Hãy nhớ rằng, cách tốt nhất có lẽ là nên cuối cùng mới cập nhật nhánh `master`... ",
+    "sl_SI": "Pomni, morda je najbolj učinkovit način posodabljanje masterja samo na koncu ..."
   },
   "startDialog": {
     "en_US": {
@@ -70,6 +78,24 @@ exports.level = {
         }
       ]
     },
+    "es_ES": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Rebaseando múltiples ramas",
+              "",
+              "Fíjate, ¡hay un montón de ramas aquí! Rebaseemos todo el trabajo de esas ramas sobre master.",
+              "",
+              "La gente de administración nos está haciendo las cosas un poco complicadas, igual -- quieren que nuestros commits estén todos en orden secuencial. Esto significa que nuestro árbol final tendría que tener `C7` al final, `C6` antes de ese, y así siguiendo, todos en orden.",
+              "",
+              "Si te haces un lío durante el proceso, siéntete libre de usar `reset` para empezar de nuevo. ¡Asegúrate de verificar tu solución y ver si puedes realizarla en un número inferior de commandos!"
+            ]
+          }
+        }
+      ]
+    },
     "pt_BR": {
       "childViews": [
         {
@@ -83,6 +109,24 @@ exports.level = {
               "No entanto, a cúpula da administração está tornando as coisas mais difíceis -- eles querem que os commits estejam todos em ordem sequencial. Isso significa que a nossa árvore final precisa ter o `C7'` por último, `C6'` acima disso, e assim por diante, tudo ordenado.",
               "",
               "Se você fizer besteira, sinta-se livre para usar o comando `reset` para recomeçar do zero. Depois lembre de olhar nossa solução do gabarito para ver se consegue resolver a tarefa usando menos comandos!"
+            ]
+          }
+        }
+      ]
+    },
+    "gl": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Fazendo rebase en múltiples ramas",
+              "",
+              "Neno, temos unha chea de ramas aquí! Imos facer rebase de todo o traballo contido nesas ramas para a master.",
+              "",
+              "A xente de administración estanos a facer as cousas complicadas, igual eles queren que os commits estén todos en orde secuencial. Isto significa que a nosa árbore final precisa ter `C7'` de último, `C6'` inda por riba, está por adiante, todo ordeado.",
+              "",
+              "Se te fas un lio polo camiño, síntete ceibe para usar o comando `reset` para comezar de cero outra vez. Despois lembra ollar a nosa solución para ver se consegues resolver a tarefa usando menos comandos!"
             ]
           }
         }
@@ -227,6 +271,41 @@ exports.level = {
               "Але вище керівництво нам не полегшує життя -- вони хочуть, щоб всі коміти були впорядковані. Це означає, що в результаті коміт `C7'` має бути з самого низу, `C6'` трохи вище, і так далі, все за порядком.",
               "",
               "Якщо ти щось зробиш не так, сміливо використовуй `reset` щоб почати спочатку. Подивись на наш розв’язок і подумай, чи ти можеш обійтись меншою кількістю команд!"
+            ]
+          }
+        }
+      ]
+    },
+    "vi": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Rebase nhiều nhánh",
+              "",
+              "Giời ạ, sao mà nhiều nhánh thế khôn biết! Chuyển hết chúng vào `master` thôi.",
+              "",
+              "Nhưng mà cha quản lý lại muốn oái oăm hơn cơ -- hắn muốn tất cả commit xếp thẳng hàng. Nghĩa là cây lịch sử của ta sẽ có `C7'` ở cuối, phía trên là`C6'`, và cứ thế theo đúng thứ tự.",
+              "",
+              "Nếu mà nhỡ may bạn làm nhầm thì có thể dùng lệnh `reset` để bắt đầu lại. Hãy nhớ đối chiếu với đáp án của chúng tôi xem bạn có thể hoàn thành với ít câu lệnh hơn không!"
+            ]
+          }
+        }
+      ]
+    },"sl_SI": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Rebasing Večih Branchev",
+              "",
+              "Uf, tu imamo pa res veliko branchev! Pojdimo in rebaseajmo vse delo iz teh branchev na master.",
+              "",
+              "Toda vodstvo se je odločilo, da le ne bo tako preprosto -- žeijo da so vsi commiti v zaporednem vrstnem redu. To pomeni, da bo naše ciljno drevo moralo imeti `C7'` na dnu, `C6'` nad njim, in tako dalje po vrsti.",
+              "",
+              "Če med reševanjem zamočiš, preprosto uporabi `reset`, da začneš znova. Poglej tudi našo rešitev in preveri, če lahko stopnjo rešiš še z manj ukazi!"
             ]
           }
         }

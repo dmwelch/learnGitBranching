@@ -7,26 +7,34 @@ exports.level = {
     "zh_CN": "合并远程仓库",
     "zh_TW": "merge with remotes",
     "es_AR": "Mergeando con los remotos",
+    "es_ES": "Haciendo merge con los remotos",
     "pt_BR": "Merge com remotos",
+    "gl"   : "Merge cos repos remotos",
     "de_DE": "Änderungen vom Remote zusammenführen",
     "ja"   : "リモートとのmerge",
     "fr_FR": "Fusionner avec les branches distantes",
     "ru_RU": "Слияние с удалённым репозиторием",
     "ko"   : "원격 작업과 merge하기",
-    "uk"   : "Мердж з віддаленим репозиторієм"
+    "uk"   : "Мердж з віддаленим репозиторієм",
+    "vi"   : "Hợp nhất nhánh từ xa",
+    "sl_SI": "Merganje z oddaljenim repozitorijem"
   },
   "hint": {
     "en_US": "Pay attention to the goal tree!",
     "zh_CN": "注意目标树!",
     "zh_TW": "注意最後要完成的目標！",
     "es_AR": "¡Prestá atención al árbol final!",
+    "es_ES": "¡Presta atención al árbol final!",
     "pt_BR": "Preste atenção na árvore do objetivo!",
+    "gl"   : "Presta atención á arbore final!",
     "de_DE": "Beachte den Ziel-Baum!",
     "ja"   : "ゴールツリーをよく見てください！",
     "fr_FR": "Respectez l'arbre représentant l'objectif !",
     "ru_RU": "Внимательно посмотрите на цель уровня!",
     "ko"   : "goal을 잘 살펴보세요!",
-    "uk"   : "Уважно подивись як має виглядати результат!"
+    "uk"   : "Уважно подивись як має виглядати результат!",
+    "vi"   : "Hãy để ý đến cây mục tiêu!",
+    "sl_SI": "Poglej si ciljno drevo!"
   },
   "compareOnlyMaster": true,
   "startDialog": {
@@ -165,6 +173,51 @@ exports.level = {
         }
       ]
     },
+    "es_ES": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## ¿Por qué no hacer merge?",
+              "",
+              "Para hacer push con tus novedades al remoto, todo lo que tienes que hacer es *integrar* los últimos cambios del remoto con los tuyos. Eso significa que puedes hacer tanto rebase como merge con la rama remota (por ejemplo, `o/master`).",
+              "",
+              "Así que si puedes hacer cualquiera de las dos, ¿por qué las lecciones sólo se han centrado en rebasear hasta ahora? ¿Por qué no dedicarle algo de amor al `merge` cuando trabajamos con remotos?",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Hay mucho debate entre los desarrolladores sobre los pros y contras de mergear vs rebasear. Aquí te mostraré los pros y contras de rebasear:",
+              "",
+              "Pros:",
+              "",
+              "* Rebasear hace que tu árbol de commits se vea bastante limpio, porque todos los commits siguen una única línea",
+              "",
+              "Contras:",
+              "",
+              "* Rebasear modifica la historia (aparente) de tu árbol de commits.",
+              "",
+              "Por ejemplo, el commit `C1` puede rebasearse para que aparezca *después* de `C3`. Entonces, parece que el trabajo de `C1'` se hizo después de `C3`, cuando en realizad se había hecho antes.",
+              "",
+              "Algunos desarrolladores prefieren preservar la historia, por lo que deciden mergear. Otros (como yo) preferimos tener un árbol de commits limpios, y preferimos rebasear. Todo es una cuestión de preferencias :D"
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Para este nivel, tratemos de resolver el nivel anterior, pero *mergeando*. Puede volverse un poco cuesta arriba, pero ilustra la idea bastante bien."
+            ]
+          }
+        }
+      ]
+    },
     "pt_BR": {
       "childViews": [
         {
@@ -205,6 +258,51 @@ exports.level = {
           "options": {
             "markdowns": [
               "Para este nível, tente resolver o mesmo problema do nível anterior, mas usando *merge* em vez de rebase. A árvore pode ficar um pouco cabeluda, mas isso ilustra bem o nosso ponto."
+            ]
+          }
+        }
+      ]
+    },
+    "gl": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## ¿Por qué non mesturar?",
+              "",
+              "Para empurrar as túas novidades ó remoto, todo o que tes que facer é *integrar* os últimos cambios do remoto cos teus. Eso significa que podes facer tanto rebase como merge ca rama remota (por exemplo, `o/master`).",
+              "",
+              "Así que podes facer calquera das dúas, ¿por qué as leccións só se centraron en rebasar ata agora? ¿Por qué non adicarlle algo de amor ó `merge` cando traballamos con remotos?",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Hai moito debate entre os desenvolvedores sobre os pros e contras de mesturar vs rebasar. Aquí temos os pros e os contras de rebasar:",
+              "",
+              "Pros:",
+              "",
+              "* Rebasar fai que a túa árbore de commits sexa bastante limpa, xa que tódolos commits seguen unha única línea.",
+              "",
+              "Contras:",
+              "",
+              "* Rebasar modifica a historia (aparente) da túa árbore de commits.",
+              "",
+              "Por exemplo, o commit `C1` pode rebasarse para que apareza *despois* de `C3`. Entón, parece que o traballo de `C1'` fíxose despois de `C3`, inda que na realidade fixérase antes.",
+              "",
+              "Algúns desenvolvedores  aman preservar a historia, polo que prefiren mesturar. Outros (coma min) preferimos ter unha árbore de commits limpos, e preferimos rebasar. Todo é unha cuestión de preferencias :D"
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Para este nivel, tratemos de resolvelo nivel anterior, pero *mesturando*. Pode poñerse un pouco oscuro, pero ilustra a idea bastante ben."
             ]
           }
         }
@@ -520,6 +618,96 @@ exports.level = {
           "options": {
             "markdowns": [
               "На цьому рівні спробуймо вирішити попереднє завдання з використанням *мерджу*. Можливо вийде не так охайно, але добре покаже різницю в підходах."
+            ]
+          }
+        }
+      ]
+    },
+    "vi": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## Tại sao không hợp nhất?",
+              "",
+              "Để có thể đẩy cập nhật của bạn lên kho nhánh từ xa, tất cả những gì bạn cần làm là *kết nạp* thay đổi mới nhất từ nhánh từ xa. Nghĩa là bạn có thể dùng tái bố trí *hoặc* hợp nhất với nhánh từ xa (ví dụ `o/master`).",
+              "",
+              "Vậy ta có thể sử dụng một trong 2 cách, thì tại sao đến giờ ta chỉ tập trung vào tái bố trí trong các bài học? Tại sao khi làm việc với nhánh từ xa lại ta lại không thích `hợp nhất` (`merge`)?",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Trong cộng đồng phát triền phần mềm có rất nhiều tranh luận về ưu, nhươc, khuyết của việc sử dụng tái bố trí(`rebase`) hay hợp nhất(`merge`). Dưới đây là một vài ưu / nhược cơ bản của tái bố trí:",
+              "",
+              "Ưu điểm:",
+              "",
+              "* Tái bố trí làm cây commit của bạn trông gọn gàng hơn nhiều vì mọi thứ được xếp theo đường thẳng",
+              "",
+              "Nhược điểm:",
+              "",
+              "* Tái bố trí sửa đổi lịch sử (biểu hiện) của cây commit.",
+              "",
+              "Ví dụ, commit `C1` có thể bố trí lên *sau* `C3`. Thế là `C1'` biểu hiện như là nó xuất hiện sau `C3` trong khi thực tế nó được hoàn thành trước đó.",
+              "",
+              "Có những nhà phát triển muốn tôn trọng tính lịch sự nên họ ưa thích hợp nhất hơn. Những người khác (như tôi chẳng hạn) thì thiên về tái bố trí hơn vì muốn có cây commit gọn gàng. Rốt cục cũng là thiên hướng thôi :D"
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Ở cấp độ này, hãy thử giải bài tập trước nhưng mà với *hợp nhất*. Có lẽ bài này hơi thừa nhưng mà nó mịnh họa quan điểm trên rõ ràng hơn."
+            ]
+          }
+        }
+      ]
+    },
+    "sl_SI": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "## Zakaj ne merganje?",
+              "",
+              "Da bi poslal nove spremembe na oddaljen repo, je vse kar moraš narediti, da *vključiš* zadnje spremembe iz oddaljenega repota. To pomeni, da lahko rebaseaš *ali* mergeaš v oddaljeni branch (npr. `o/master`).",
+              "",
+              "Torej če lahko narediš katero izmed metod, zakaj imeti lekcijo, ki se zaenkrat osredotoča na rebaseanje? Zakaj ni nobene ljubezni do `mergea` pri delanju z oddaljenimi repoti?",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Veliko govora je o kompromisih med merganjem in rebasanjem med razvijalci. Tu so splošne prednosti / slabosti rebaseanja:",
+              "",
+              "Prednosti:",
+              "",
+              "* Rebasanje naredi tvoje drevo lepo in pregledno, ker je vse v ravni črti",
+              "",
+              "Slabosti:",
+              "",
+              "* Rebasanje spremeni (navidezno) zgodovino drevesa commitov.",
+              "",
+              "Naprimer, commit `C1` je lahko rebasean *mimo* `C3`. Potem izgleda, kot da je delo za `C1'` prišlo za `C3`, čeprav je v resnici bilo končano prej.",
+              "",
+              "Nekateri razvijalci imajo radi ohranjanje zgodovine in imajo posledično rajši merganje. Drugi (kot jaz) imajo rajši čisto drevo commitov in posledično rebasanje. Na koncu prevlada osebna preferenca. :D"
+            ]
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "Za to stopnjo, poizkusimo rešiti prešnjo stopnjo z *merganjem*. Mogoče bo malo zakomplicirano, vendar bo lepo ponazorilo poanto."
             ]
           }
         }

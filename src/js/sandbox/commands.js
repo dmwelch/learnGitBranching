@@ -1,4 +1,3 @@
-var _ = require('underscore');
 var util = require('../util');
 
 var constants = require('../util/constants');
@@ -9,6 +8,7 @@ var Errors = require('../util/errors');
 var CommandProcessError = Errors.CommandProcessError;
 var LocaleStore = require('../stores/LocaleStore');
 var LocaleActions = require('../actions/LocaleActions');
+var LevelStore = require('../stores/LevelStore');
 var GlobalStateStore = require('../stores/GlobalStateStore');
 var GlobalStateActions = require('../actions/GlobalStateActions');
 var GitError = Errors.GitError;
@@ -16,12 +16,12 @@ var Warning = Errors.Warning;
 var CommandResult = Errors.CommandResult;
 
 var instantCommands = [
-  [/^ls/, function() {
+  [/^ls( |$)/, function() {
     throw new CommandResult({
       msg: intl.str('ls-command')
     });
   }],
-  [/^cd/, function() {
+  [/^cd( |$)/, function() {
     throw new CommandResult({
       msg: intl.str('cd-command')
     });
@@ -49,6 +49,21 @@ var instantCommands = [
 
     throw new CommandResult({
       msg: lines.join('\n')
+    });
+  }],
+  [/^alias (\w+)="(.+)"$/, function(bits) {
+    const alias = bits[1];
+    const expansion = bits[2];
+    LevelStore.addToAliasMap(alias, expansion);
+    throw new CommandResult({
+      msg: 'Set alias "'+alias+'" to "'+expansion+'"',
+    });
+  }],
+  [/^unalias (\w+)$/, function(bits) {
+    const alias = bits[1];
+    LevelStore.removeFromAliasMap(alias);
+    throw new CommandResult({
+      msg: 'Removed alias "'+alias+'"',
     });
   }],
   [/^locale (\w+)$/, function(bits) {
@@ -98,9 +113,10 @@ var instantCommands = [
       intl.str('show-all-commands'),
       '<br/>'
     ];
-    _.each(allCommands, function(regex, command) {
-      lines.push(command);
-    });
+    Object.keys(allCommands)
+      .forEach(function(command) {
+        lines.push(command);
+      });
 
     throw new CommandResult({
       msg: lines.join('\n')
@@ -134,17 +150,20 @@ var getAllCommands = function() {
     'mobileAlert'
   ];
 
-  var allCommands = _.extend(
+  var allCommands = Object.assign(
     {},
     require('../level').regexMap,
     regexMap
   );
-  _.each(Commands.commands.getRegexMap(), function(map, vcs) {
-    _.each(map, function(regex, method) {
+  var mRegexMap = Commands.commands.getRegexMap();
+  Object.keys(mRegexMap).forEach(function(vcs) {
+    var map = mRegexMap[vcs];
+    Object.keys(map).forEach(function(method) {
+      var regex = map[method];
       allCommands[vcs + ' ' + method] = regex;
     });
   });
-  _.each(toDelete, function(key) {
+  toDelete.forEach(function(key) {
     delete allCommands[key];
   });
 

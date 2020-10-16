@@ -9,11 +9,15 @@ exports.level = {
     "de_DE": "Mehrere Vorgänger",
     "ja"   : "複数の親",
     "es_AR": "Múltiples padres",
+    "es_ES": "Múltiples padres",
     "pt_BR": "Múltiplos pais",
+    "gl"   : "Múltiples pais",
     "zh_TW": "多個 parent commit",
     "ru_RU": "Здоровая семья, или несколько родителей",
     "ko"   : "다수의 부모",
-    'uk': 'Декілька батьків'
+    'uk': 'Декілька батьків',
+    'vi': 'Nhiều cha lắm mẹ',
+    'sl_SI': 'Več Staršev'
   },
   "hint": {
     "en_US": "Use `git branch bugWork` with a target commit to create the missing reference.",
@@ -22,11 +26,15 @@ exports.level = {
     'fr_FR': 'Utilisez "git branch bugWork" avec un commit pour créer une référence manquante',
     "zh_CN": "使用 `git branch bugWork` 加上一个目标提交记录来创建消失的引用。",
     "es_AR": "Usá `git branch bugWork` sobre algún commit para crear la referencia faltante",
+    "es_ES": "Usa `git branch bugWork` sobre algún commit para crear la referencia que falta",
     "pt_BR": "Use `git branch bugWork` com um commit alvo para criar a referência que falta",
+    "gl"   : "Usa `git branch bugWork` sobre calquera commit para crear a referencia que falta",
     "zh_TW": "在一個指定的 commit 上面使用 `git branch bugWork`。",
     "ru_RU": "`git branch bugWork` на нужном коммите поможет создать нужную ссылку.",
     "ko"   : "`git branch bugWork`를 대상 커밋과 함께 사용해서 부족한 참조를 만드세요",
-    'uk': 'Використай "git branch bugWork" на потрібному коміті щоб створити потрібне посилання'
+    'uk': 'Використай "git branch bugWork" на потрібному коміті щоб створити потрібне посилання',
+    'vi': 'Dùng lệnh `git branch bugWork` để tạo nhánh tại vị trí chỉ định',
+    'sl_SI': 'Uporabi `git branch bugWork` s ciljnim commitom za ustvarjanje manjkajoče reference.'
   },
   "startDialog": {
     "en_US": {
@@ -209,13 +217,13 @@ exports.level = {
           "type": "ModalAlert",
           "options": {
             "markdowns": [
-              "### Determine les Parents",
+              "### Détermine les parents",
               "",
               "Comme le symbole `~`, le symbole `^` accepte un numéro après lui.",
               "",
               "Au lieu d'entrer le nombre de générations à remonter (ce que `~` fait), le symbole `^` détermine quel parent est à remonter. Attention, un merge commit a deux parents ce qui peut porter à confusion.",
               "",
-              "Normalement Git suit le  \"premier\" parent pour un commit/merge, mais avec un numéro suivi de `^` le comportement par défault est modifié.",
+              "Normalement Git suit le \"premier\" parent pour un commit/merge, mais avec un numéro suivi de `^` le comportement par défaut est modifié.",
               "",
               "Assez de bla bla, passons à l\'action",
               ""
@@ -282,7 +290,7 @@ exports.level = {
             "markdowns": [
               "### Un peu de pratique",
               "",
-              "Pour réussir le niveau, créez une nouvelle branche à la destination indiquée",
+              "Pour réussir le niveau, créez une nouvelle branche à la destination indiquée.",
               "",
               "Évidement ce serait plus rapide de spécifier le commit (C6 par exemple), mais faites-le plutôt avec les symboles de déplacement dont nous venons de parler !"
             ]
@@ -458,7 +466,94 @@ exports.level = {
               "",
               "Para completar este nivel, creá una nueva rama en la ubicación indicada.",
               "",
-              "Obviamente sería muy fácil especificar el commit directamente (algo como `C6`), pero te reto a usar los modificadores de los que estuvimos hablando, mejor"
+              "Obviamente sería muy fácil especificar el commit directamente (algo como `C6`), pero te reto a usar los modificadores de los que estuvimos hablando, mejor."
+            ]
+          }
+        }
+      ]
+    },
+    "es_ES": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Especificando los padres",
+              "",
+              "Como el modificador de `~`, `^` también acepta un número opcional después de él.",
+              "",
+              "En lugar de especificar cuántas generaciones hacia atrás ir (como `~`), el modificador de `^` especifica por cuál de las referencias padres seguir en un commit de merge. Recuerda que un commit de merge tiene múltiples padres, por lo que el camino a seguir es ambiguo.",
+              "",
+              "Git normalmente sigue el \"primer\" padre de un commit de merge, pero especificando un número junto con `^` cambia este comportamiento predefinido.",
+              "",
+              "Demasiada charla, veámoslo en acción.",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Aquí tenemos un commit de merge. Si hacemos checkout de `master^`, sin modificadores, vamos a seguir al primer padre después del commit de merge. ",
+              "",
+              "(*En nuestras visualizaciones, el primer padre se ubica directamente arriba del commit de merge.*)"
+            ],
+            "afterMarkdowns": [
+              "Fácil -- esto es a lo que estamos acostumbrados."
+            ],
+            "command": "git checkout master^",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Ahora tratemos de especificar el segundo padre, en cambio..."
+            ],
+            "afterMarkdowns": [
+              "¿Ves? Seguimos al otro padre hacia arriba."
+            ],
+            "command": "git checkout master^2",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Los modificadores de `^` y `~` son muy poderosos a la hora de movernos en un árbol:"
+            ],
+            "afterMarkdowns": [
+              "¡Rapidísimo!"
+            ],
+            "command": "git checkout HEAD~; git checkout HEAD^2; git checkout HEAD~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Más loco aún, ¡estos modificadores pueden encadenarse entre sí! Mira esto:"
+            ],
+            "afterMarkdowns": [
+              "El mismo movimiento que antes, pero todo en uno."
+            ],
+            "command": "git checkout HEAD~^2~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Ponlo en práctica",
+              "",
+              "Para completar este nivel, crea una nueva rama en la ubicación indicada.",
+              "",
+              "Obviamente sería muy fácil especificar el commit directamente (algo como `C6`), pero te reto a usar los modificadores de los que estuvimos hablando, mejor."
             ]
           }
         }
@@ -546,6 +641,94 @@ exports.level = {
               "Para completar este nível, crie um novo ramo no destino especificado.",
               "",
               "Obviamente seria mais fácil especificar o commit diretamente (com algo como `C6`), mas em vez disso eu desafio você a usar os modificadores sobre os quais falamos!"
+            ]
+          }
+        }
+      ]
+    },
+
+    "gl": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Especificando pais",
+              "",
+              "Tanto o modificador `~`, como o modificador `^` aceptan un número opcional despois del.",
+              "",
+              "Mellor que especificar o número de commits que percorrer cara atrás (que é o que o `~` fai), o modificador sobre `^` especifica  qué referencia do pai vai ser seguida dende o commit con merge. Lembra qué os commits do merge teñen varios pais, entón o camiño a seguir é ambiguo.",
+              "",
+              "Git normalmente seguirá ó \"primeiro\" pai de un commit de merge, pero especificando un número co `^` muda o comportamento do pai.",
+              "",
+              "Xa chega de faladoiros, vexamos o comando en acción.",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Aquí temos un commit do merge. Se fixéramos checkout en `master^` sen especificar un número, imos seguir ó primeiro pai enriba do commit do merge. ",
+              "",
+              "(*Na nosa vista, o primeiro pai é aquel directamente enriba do commit do merge.*)"
+            ],
+            "afterMarkdowns": [
+              "Sinxelo, eso é aquelo co que xa estamos acostumados."
+            ],
+            "command": "git checkout master^",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Agora imos, en vez de iso, especificar o segundo pai..."
+            ],
+            "afterMarkdowns": [
+              "¿Viches? Subimos para o outro pai."
+            ],
+            "command": "git checkout master^2",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Os modificadores `^` e `~` pódense mover ao redor da árbore de commits con moito poder:"
+            ],
+            "afterMarkdowns": [
+              "Rápido coma a luz!"
+            ],
+            "command": "git checkout HEAD~; git checkout HEAD^2; git checkout HEAD~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Aínda máis tolo, eses modificadores poden ser encadeados en conxunto! Olla ahí:"
+            ],
+            "afterMarkdowns": [
+              "O mesmo movemento feito antes, pero feito nun só comando."
+            ],
+            "command": "git checkout HEAD~^2~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Pono na práctica",
+              "",
+              "Para completar este nível, crea unha nova rama no destino especificado.",
+              "",
+              "Obviamente sería máis sinxelo especificar o commit diretamente (algo como `C6`), pero en vez de facer eso, ¡podes usar os modificadores dos que falamos!"
             ]
           }
         }
@@ -824,7 +1007,7 @@ exports.level = {
               "",
               "몇개의 세대를 돌아갈지 정하는 것 대신(`~`의 기능) `^`수식은 병합이된 커밋에서 어떤 부모를 참조할지 선택할 수 있습니다. 병합된 커밋들은 다수의 부모를 가지고 있다는것을 기억하시나요? 어떤 부모를 선택할지 예측할 수가 없습니다.",
               "",
-              "Git은 보통 병합된 커밋에서 \"첫\"부모를 따라갑니다. 하지만 `^`수식을 를 숫자와 함께 사용하면 앞의 디폴트 동작대로가 아닌 다른 결과가 나타납니다.",
+              "Git은 보통 병합된 커밋에서 \"첫\" 부모를 따라갑니다. 하지만 `^`수식을 숫자와 함께 사용하면 앞의 디폴트 동작대로가 아닌 다른 결과가 나타납니다.",
               "",
               "이만 줄이고, 직접 확인해봅시다.",
               ""
@@ -981,6 +1164,180 @@ exports.level = {
               "Щоб завершити цей рівень, створи нову гілку на вказаному місці.",
               "",
               "Очевидно, що в данному випадку досить легко вказати коміт напряму (щось на зразок checkout `C6`), але для закріплення матеріалу використай модифікатори, про які ми щойно говорили!"
+            ]
+          }
+        }
+      ]
+    },
+    "vi": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Tìm về cội nguồn",
+              "",
+              "Cũng giống ký hiệu `~`, ta cũng có thể thêm số theo sau ký hiệu `^`.",
+              "",
+              "Nhưng mà không giống như (`~`) con số theo sau là số lượng thế hệ commit, con số theo sau `^` chỉ định commit cha từ commit merge. Hãy nhớ rằng commit merge có nhiều cha, cho nên chọn cha nào cũng khá là mơ hồ.",
+              "",
+              "Thông thường thì sẽ chọn cha \"đầu tiên\" từ commit merge, nhưng nếu sau dấu `^` có một con số thì cách hành xử sẽ khác đi.",
+              "",
+              "Không nói dông dài nữa, làm thử một ví dụ nào",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Ở đây ta có 1 commit merge. Nếu ta dùng lệnh `master^` mà không bổ nghĩa cho nó, ta sẽ đi ngược lên commit cha đầu tiên của merge commit. ",
+              "",
+              "(*Trong hình minh họa bên trái thì commit cha đầu tiên được xếp hẳng hàng ngay phía trên của commit merge.*)"
+            ],
+            "afterMarkdowns": [
+              "Dễ dàng -- đó là cách mà ta thường làm."
+            ],
+            "command": "git checkout master^",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Nào bây giờ hãy chỉ định commit cha thứ hai thử..."
+            ],
+            "afterMarkdowns": [
+              "Thấy chứ? Ta đã leo lên commit cha khác lúc trước."
+            ],
+            "command": "git checkout master^2",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Dùng bổ ngữ `^` và `~` cho ta khả năng di chuyển trên cây lịch sử:"
+            ],
+            "afterMarkdowns": [
+              "Nhanh như chớp!"
+            ],
+            "command": "git checkout HEAD~; git checkout HEAD^2; git checkout HEAD~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Thâm chí còn ghê gớm hơn khi ta kết hợp chúng với nhau! Hãy xem thử:"
+            ],
+            "afterMarkdowns": [
+              "Cùng con đường như lúc trước, nhưng chỉ cần 1 dòng lệnh."
+            ],
+            "command": "git checkout HEAD~^2~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Áp dụng thực hành nào",
+              "",
+              "Để hoàn thành cấp độ này, hãy tạo ra một nhánh mới ở vị trí chỉ định.",
+              "",
+              "Dùng cách chỉ định trực tiếp commit (như là dùng `C6` chẳng hạn) thì dễ quá, nhưng thử thách ở đây là dùng các bổ ngữ đã học ở trên!"
+            ]
+          }
+        }
+      ]
+    },
+    "sl_SI": {
+      "childViews": [
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Določanje Staršev",
+              "",
+              "Tako kot `~` modifikator, tudi `^` modifikator sprejme opcijsko število na koncu.",
+              "",
+              "Raje kot podajanje števila generacij, za katere se hočemo premakniti nazaj (kot pri `~`), modifikator `^` pove kateremu staršu oz. njegovi referenci naj sledi iz merge commita. Zapomni si, da imajo merge commiti več staršev, zato je pot nejasna.",
+              "",
+              "Git bo ponavadi sledil \"prvemu\" staršu navzgor po merge commitu, ampak določitev števila s `^` spremeni privzeto obnašanje.",
+              "",
+              "Dovolj govorjenja, poglejmo stvar v akciji.",
+              ""
+            ]
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Tukaj imamo merge commit. Če checkoutamo `master^` brez modifikatorjev, bomo sledili prvem staršu po merge commitu. ",
+              "",
+              "(* V naši vizualizaciji, je postavljen prvi starš direktno nad merge commitom.)"
+            ],
+            "afterMarkdowns": [
+              "Enostavno -- tega smo vsi navajeni."
+            ],
+            "command": "git checkout master^",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Sedaj pa poizkusimo določiti raje drugega starša ..."
+            ],
+            "afterMarkdowns": [
+              "Vidiš? Sledili smo drugemu staršu navzgor."
+            ],
+            "command": "git checkout master^2",
+            "beforeCommand": "git checkout HEAD^; git commit; git checkout master; git merge C2"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Modifikatorja `^` in `~` naredita sprehajanje po drevesu zelo učinkovito:"
+            ],
+            "afterMarkdowns": [
+              "Bliskovito!"
+            ],
+            "command": "git checkout HEAD~; git checkout HEAD^2; git checkout HEAD~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "GitDemonstrationView",
+          "options": {
+            "beforeMarkdowns": [
+              "Še bolj noro, te modifikatorji so lahko povezani skupaj! Poglej to:"
+            ],
+            "afterMarkdowns": [
+              "Isto gibanje kot prej, ampak vse z enim ukazom."
+            ],
+            "command": "git checkout HEAD~^2~2",
+            "beforeCommand": "git commit; git checkout C0; git commit; git commit; git commit; git checkout master; git merge C5; git commit"
+          }
+        },
+        {
+          "type": "ModalAlert",
+          "options": {
+            "markdowns": [
+              "### Preizkusi v praksi",
+              "",
+              "Za dokončanje te stopnje, ustvari nov brench na določeni destinaciji.",
+              "",
+              "Seveda bi bilo lažje izbrati commit direktno (npr. s `C6`), ampak te izzivam, da namesto tega poizkusiš z modifikatorji o katerih smo govorili!"
             ]
           }
         }

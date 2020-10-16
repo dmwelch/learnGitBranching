@@ -78,6 +78,62 @@ exports.dialog = {
       ]
     }
   }],
+  'es_ES': [{
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## ¡Bienvenid@ a Learn Git Branching!',
+        '',
+        'Esta aplicación está diseñada para ayudar a los principantes ',
+        'a manejar los poderosos conceptos que hay detrás del trabajo ',
+        'con ramas (branches) en Git. Esperamos que disfrutes la aplicación ',
+        'y tal vez incluso ¡que aprendas algo! ',
+        '',
+        '# ¡Demo!',
+        '',
+        'Si no viste la demo, mírala en esta dirección:',
+        '',
+        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '',
+        '¿Harto de este mensaje? Agrégale `?NODEMO` a la URL para dejar de verlo, como en este link:',
+        '',
+        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+      ]
+    }
+  }, {
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## Comandos de Git',
+        '',
+        'Tienes una gran variedad de comandos de git en este sandbox. Estos incluyen: ',
+        '',
+        ' * commit',
+        ' * branch',
+        ' * checkout',
+        ' * cherry-pick',
+        ' * reset',
+        ' * revert',
+        ' * rebase',
+        ' * merge'
+      ]
+    }
+  }, {
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## ¡Comparte!',
+        '',
+        'Comparte tus árboles con tus amigos usando `export tree` e `import tree`',
+        '',
+        '¿Tienes una buena lección que compartir? Prueba construyendo un nivel con `build level` o prueba el nivel de un amigo con `import level`',
+        '',
+        'Para ver todos los comandos disponibles, escribe `show commands`. Hay algunas joyitas como `undo` y `reset`',
+        '',
+        'Por ahora, empecemos con los `levels`...'
+      ]
+    }
+  }],
   'pt_BR': [{
     type: 'ModalAlert',
     options: {
@@ -131,6 +187,62 @@ exports.dialog = {
         'Para ver todos os comandos, use `show commands`. Há algumas jóias como `undo` e `reset`',
         '',
         'Por hora, vamos começar com o `levels`...'
+      ]
+    }
+  }],
+  'gl': [{
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## Benvido a Learn Git Branching!',
+        '',
+        'Esta aplicación foi desenvolvida para axudar os iniciados en git a ',
+        'aprender os poderosos conceptos que hai por detrás do branching con ',
+        ' git. Agardamos que disfrutes desta aplicación, e tal vez, ',
+        'ata aprendas algunha cousa!',
+        '',
+        '# Demostracións!',
+        '',
+        'Se aínda non viches a demo, olla aquí:',
+        '',
+        '[https://pcottle.github.io/learnGitBranching/?demo](https://pcottle.github.io/learnGitBranching/?demo)',
+        '',
+        '¿Farto destas mensaxes? Engade `?NODEMO` á dirección para librarte dela, como no link de abaixo:',
+        '',
+        '[https://pcottle.github.io/learnGitBranching/?NODEMO](?NODEMO)'
+      ]
+    }
+  }, {
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## Comandos de git',
+        '',
+        'Tes a túa disposición unha caixa de área con unha variedade de comandos de git:',
+        '',
+        ' * commit',
+        ' * branch',
+        ' * checkout',
+        ' * cherry-pick',
+        ' * reset',
+        ' * revert',
+        ' * rebase',
+        ' * merge'
+      ]
+    }
+  }, {
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## Compartir e importar!',
+        '',
+        'Comparte árbores cos seus amigas con `export tree` e `import tree`',
+        '',
+        '¿Tes un enlace moi grande para compartir? Intenta construír un nivel con `build level` ou importe o nivel dun amigo con `import level`',
+        '',
+        'Para ver tódolos comandos, usa `show commands`. Hai algunha xoia como `undo` e `reset`',
+        '',
+        'Por agora, imos comezar cos `levels`...'
       ]
     }
   }],
@@ -396,7 +508,7 @@ exports.dialog = {
       markdowns: [
         '## Commandes Git',
         '',
-        'Il existe une large variété de commandes git disponibles dans le mode bac à sable. Sont inclues :',
+        'Il existe une large variété de commandes git disponibles dans le mode bac à sable. Sont incluses :',
         '',
         ' * commit',
         ' * branch',
@@ -501,5 +613,50 @@ exports.dialog = {
         '[це спеціальне посилання.](https://pcottle.github.io/learnGitBranching/?NODEMO)'
       ]
     }
-  }]
+  }],
+  'vi': [{
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## Chào mừng đến với Học Nhánh Git',
+        '',
+        'Bạn có hứng thú học Git? Bạn đến đúng nơi rồi đấy! ',
+        '"Học Nhánh Git" là cách trực quan và hiệu quả nhất để học Git trên web; ',
+        'thông qua một loạt các thử thách cấp độ thú vị, bạn sẽ từng bước tìm hiểu sức mạnh của git',
+        '',
+        'Sau khi hội thoại này đóng lại, bạn sẽ thấy nhiều cấp độ mà chúng tôi cung cấp. ',
+        'Nếu bạn là người mới thì hãy bắt đầu từ bài đầu tiên. Nếu bạn đã có hiểu biết cơ bản về git, ',
+        'hãy thử những bài mang tính thách thức hơn phía sau.',
+        '',
+        'Bạn có thể dùng lệnh `show commands` để xem tất cả các lệnh hiện hữu.',
+        '',
+        'Ghi chú: Nếu muốn trực tiếp vào hộp cát ở lần sau?',
+        'Hãy dùng',
+        '[đường link đặc biệt này của chúng tôi](https://pcottle.github.io/learnGitBranching/?NODEMO)'
+      ]
+    }
+  }],
+  'sl_SI': [{
+    type: 'ModalAlert',
+    options: {
+      markdowns: [
+        '## Dobrodošel na učenju Git Branchanja',
+        '',
+        'Bi se rad naučil Git? No, prišel si na pravo mesto! ',
+        '"Learn Git Branching" je najbolj vizualen in interaktiven način učenja Git-a ',
+        'na spletu; zagrizel boš v zanimive stopnje, po korakih boš spoznaval osupljive ',
+        'funkcije in kaj pa veš, morda ti bo celo zabavno. ;)',
+        '',
+        'Za tem oknom boš videl kopico stopenj, ki so na razpolago. Če si ',
+        'začetnik, kar pogumno, začni s prvo. Če pa že poznaš Git osnove, ',
+        'se preizkusi v zahtevnejših stopnjah.',
+        '',
+        'Vidiš lahko vse ukaze, ki so na voljo, z ukazom `show commands` v terminalu.',
+        '',
+        'PS: Bi šel rad naslednjič naravnost v peskovnik?',
+        'Poizkusi s',
+        '[to posebno povezavo](https://pcottle.github.io/learnGitBranching/?NODEMO)'
+      ]
+    }
+  }],
 };
